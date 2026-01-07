@@ -2,6 +2,14 @@ import streamlit as st
 import pandas as pd
 
 def register_entry(df, col_e, col_d):
+    '''
+    função de que armazena as entradas
+    e por fim, as salva no csv
+    
+    :param df: dataframe
+    :param col_e: coluna da esquerda
+    :param col_d: coluna da direita
+    '''
     data = col_e.date_input('Selecione a data:', format='DD/MM/YYYY')
     valor = col_d.number_input('Digite o valor (R$):')
     desc = col_d.text_input('Digite uma breve descrição da entrada:')
@@ -18,6 +26,14 @@ def register_entry(df, col_e, col_d):
 
 
 def register_output(df, col_e, col_d):
+    '''
+    função de que armazena as saídas
+    e por fim, as salva no csv
+    
+    :param df: dataframe
+    :param col_e: coluna da esquerda
+    :param col_d: coluna da direita
+    '''
     data = col_e.date_input('Selecione a data:', format='DD/MM/YYYY')
     valor = col_d.number_input('Digite o valor (R$):')
     desc = col_d.text_input('Digite uma breve descrição da saída:')
@@ -34,6 +50,12 @@ def register_output(df, col_e, col_d):
 
 
 def save_register_csv(df, dados):
+    '''
+    Função que concatena o csv principal com o registro atual e os salva no csv. 
+    
+    :param df: dataframe
+    :param dados: dicionario com a entrada/saida registrada
+    '''
     dados = pd.DataFrame.from_dict(dados)
     dados = dados.set_index(['Data'])
     df = pd.DataFrame(df)
@@ -43,11 +65,23 @@ def save_register_csv(df, dados):
     st.badge('Adicionado com sucesso.', color='green', width='content')
 
 def filter_entry(df, tab):
+    '''
+    função que filtra somente as entradas
+    
+    :param df: dataframe
+    :param tab: aba
+    '''
     filtro_entry = df['Tipo'] == 'ENTRADA'
     df_entry = df[filtro_entry]
     tab.dataframe(df_entry)
 
 def filter_output(df, tab):
+    '''
+    função que filtra somente as saídas
+    
+    :param df: dataframe
+    :param tab: aba
+    '''
     filtro_entry = df['Tipo'] == 'SAÍDA'
     df_entry = df[filtro_entry]
     tab.dataframe(df_entry)

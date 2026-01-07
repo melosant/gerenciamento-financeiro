@@ -5,9 +5,11 @@ from src.func_df_streamlit import register_entry, register_output, filter_entry,
 st.title('Gestão Financeira')
 st.markdown('''_Pressione "R" para atualizar a página e as tabelas._''')
 
+# leitura e set de index do csv
 df = pd.read_csv('template_controle.csv')
 df = df.set_index(['Data'])
 
+# definição das colunas
 col1, col2 = st.columns(spec=2 ,border=True)
 
 tipo = col1.selectbox(label='Escolha o tipo: ', options=['Entrada', 'Saída'])
