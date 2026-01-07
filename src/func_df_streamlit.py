@@ -63,7 +63,7 @@ def save_register_csv(df, data_set):
     df.to_csv('finp.csv')
 
     st.badge('Registro adicionado com sucesso.', color='green')
-    st.dataframe(data_set) 
+    st.dataframe(data_set) # exibe somente a linha de registro adicionada
 
 def filter_entry(df, tab):
     '''

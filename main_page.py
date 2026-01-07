@@ -3,6 +3,7 @@ import pandas as pd
 from src.func_df_streamlit import register_entry, register_output, filter_entry, filter_output
 from src.func_gerais import archive_initialization
 
+# verificação da existência da base da dados
 archive_initialization()
 
 st.title('Sistema FINP')
