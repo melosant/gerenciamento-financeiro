@@ -1,4 +1,4 @@
 # gerenciamento-financeiro
 Projeto de integração de uma planilha de controle financeiro pessoal utilizando Python
 
-- template já definido (não mudar colunas)
+- template csv é criado no momento em que roda o sistema no streamlit

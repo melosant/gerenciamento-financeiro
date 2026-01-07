@@ -49,20 +49,21 @@ def register_output(df, col_e, col_d):
         save_register_csv(df, data_set)
 
 
-def save_register_csv(df, dados):
+def save_register_csv(df, data_set):
     '''
     Função que concatena o csv principal com o registro atual e os salva no csv. 
     
     :param df: dataframe
     :param dados: dicionario com a entrada/saida registrada
     '''
-    dados = pd.DataFrame.from_dict(dados)
-    dados = dados.set_index(['Data'])
+    data_set = pd.DataFrame.from_dict(data_set)
+    data_set = data_set.set_index(['Data'])
     df = pd.DataFrame(df)
-    df = pd.concat([df, dados], axis=0) 
-    df.to_csv('template_controle.csv', sep=',')
+    df = pd.concat([df, data_set], axis=0) 
+    df.to_csv('finp.csv')
 
-    st.badge('Adicionado com sucesso.', color='green', width='content')
+    st.badge('Registro adicionado com sucesso.', color='green')
+    st.dataframe(data_set) 
 
 def filter_entry(df, tab):
     '''
