@@ -8,9 +8,9 @@ def archive_initialization():
     
     if not archive_exist():
         create_csv()
-        st.badge('Base de Dados FINP Criada.', color='green')
+        st.success('Base de Dados FINP Criada.')
     else:
-        st.badge('Base de Dados Iniciada.', color='yellow')
+        st.warning('Base de Dados Iniciada.')
 
 def archive_exist():
     '''
