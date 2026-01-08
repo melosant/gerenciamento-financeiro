@@ -34,6 +34,12 @@ def filter_output(df, tab):
     return df_output
 
 def filter_month(df, tab):
+    '''
+    cria um df filtrado pelo mês que o usuário selecionar
+    
+    :param df: dataframe
+    :param tab: aba utilizada
+    '''
     meses = pd.to_datetime(df.index).month
     meses_unicos = meses.unique()
     escolha = tab.selectbox(label='Selecione o mês que deseja ver o resumo:', options=meses_unicos)
@@ -45,6 +51,12 @@ def filter_month(df, tab):
     return df_filtrado_mes
 
 def filter_year(df, tab):
+    '''
+    cria um df filtrado pelo ano que o usuário selecionar
+    
+    :param df: dataframe
+    :param tab: aba utilizada
+    '''
     anos = pd.to_datetime(df.index).year
     anos_unicos = anos.unique()
     escolha = tab.selectbox(label='Selecione o ano que deseja ver o resumo:', options=anos_unicos)
