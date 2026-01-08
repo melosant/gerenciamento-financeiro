@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
-from src.func_df_streamlit import register_entry, register_output, filter_entry, filter_output
-from src.func_gerais import archive_initialization
+from src.pipelines.register import register_entry, register_output
+from src.pipelines.initialization_arch import archive_initialization
 
 # verificação da existência da base da dados
 archive_initialization()
@@ -20,16 +20,5 @@ tipo = col1.selectbox(label='Escolha o tipo: ', options=['Entrada', 'Saída'])
 
 if tipo == 'Entrada':
     register_entry(df, col1, col2)
-
-    # tab_geral, tab_entry, tab_output = st.tabs(['Geral', 'Entradas', 'Saídas'])
-    # tab_geral.dataframe(df)
-    # filter_entry(df, tab_entry)
-    # filter_output(df, tab_output)
-
 else:
     register_output(df, col1, col2)
-    
-    # tab_geral, tab_entry, tab_output = st.tabs(['Geral', 'Entradas', 'Saídas'])
-    # tab_geral.dataframe(df)
-    # filter_entry(df, tab_entry)
-    # filter_output(df, tab_output)
